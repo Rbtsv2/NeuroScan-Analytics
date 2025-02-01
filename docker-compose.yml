@@ -23,6 +23,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: YourStrong!Passw0rd
     ports:
       - "8080:8080"
+    volumes:
+      - ./src:/app/src
     depends_on:
       - db
     networks:
