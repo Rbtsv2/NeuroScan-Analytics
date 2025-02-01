@@ -1,0 +1,32 @@
+NeuroScan-Analytics/
+├── src/
+│   ├── main/
+│   │   ├── java/com/neuroscan/
+│   │   │   ├── controller/
+│   │   │   │   └── PatientController.java
+│   │   │   │   └── BrainMetricsController.java
+│   │   │   ├── service/
+│   │   │   │   └── PatientService.java
+│   │   │   │   └── DataAnalysisService.java
+│   │   │   ├── repository/
+│   │   │   │   └── PatientRepository.java
+│   │   │   │   └── BrainMetricsRepository.java
+│   │   │   ├── model/
+│   │   │   │   └── Patient.java
+│   │   │   │   └── BrainMetrics.java
+│   │   │   └── NeuroScanApplication.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── static/
+│   │           └── js/
+│   │               └── charts.js
+│   │           └── css/
+│   │               └── style.css
+│   │           └── index.html
+│   └── test/java/com/neuroscan/
+│       └── NeuroScanApplicationTests.java
+├── data/
+│   └── kaggle_dataset.csv
+├── docker-compose.yml
+├── pom.xml
+└── README.md 

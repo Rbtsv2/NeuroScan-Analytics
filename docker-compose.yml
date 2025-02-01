@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql_db
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - medical_network
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  app:
+    build: .
+    container_name: spring_boot_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlserver://db:1433;databaseName=MedicalDB
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: YourStrong!Passw0rd
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - medical_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - db
+    networks:
+      - medical_network
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+networks:
+  medical_network:
+    driver: bridge
+
+volumes:
+  mssql_data:
+  grafana_data: 
+  
