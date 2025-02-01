@@ -87,6 +87,20 @@ POST /api/data/import
 - Histogrammes des troubles du sommeil
 - Timelines des évolutions de maladies neurodégénératives
 
+## 🌐 Accès aux Services
+
+- **Application API (Spring Boot) :**
+  - Local : [http://localhost:8080](http://localhost:8080)
+  - Réseau : [http://192.168.1.42:8080](http://192.168.1.42:8080)
+
+- **Base de Données (SQL Server) :**
+  - Local : `localhost:1433`
+  - Réseau : `192.168.1.42:1433`
+
+- **Grafana (si configuré) :**
+  - Local : [http://localhost:3000](http://localhost:3000)
+  - Réseau : [http://192.168.1.42:3000](http://192.168.1.42:3000)
+
 ## 🐳 Configuration Docker
 
 Exemple de `docker-compose.yml` :
