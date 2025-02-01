@@ -51,7 +51,7 @@ cd NeuroScan-Analytics
 2. Configurez la base de données dans `src/main/resources/application.properties` :
 
 ```properties
-spring.datasource.url=jdbc:sqlserver://db:1433;databaseName=neuroscan
+spring.datasource.url=jdbc:sqlserver://db:1433;databaseName=Sleep
 spring.datasource.username=sa
 spring.datasource.password=VotreMotDePasse
 ```
@@ -72,7 +72,7 @@ L'application sera accessible à l'adresse : `http://localhost:8080`
 
 ## 🗃️ Importation des Données Kaggle
 
-1. Téléchargez le dataset depuis Kaggle (ex : Alzheimer’s Dataset).
+1. Téléchargez le dataset depuis Kaggle (ex : Sleep Health and Lifestyle Dataset's Dataset).
 2. Placez le fichier CSV dans le dossier `data/`.
 3. Exécutez le service d'importation via l'API :
 
