@@ -17,7 +17,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copie des fichiers buildés dans le dossier de NGINX
-COPY --from=build /app/dist/frontend /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Exposition du port 80 (le port par défaut de NGINX)
 EXPOSE 80

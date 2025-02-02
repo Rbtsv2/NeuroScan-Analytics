@@ -35,13 +35,14 @@ services:
     build: ./frontend
     container_name: frontend
     ports:
-      - "4200:4200"
+      - "4200:80"
     depends_on:
       - backend
     environment:
       - API_URL=http://backend:8080/api
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend:/app
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
       - medical_network
 
