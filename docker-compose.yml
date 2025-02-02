@@ -13,12 +13,13 @@ services:
       - medical_network
     volumes:
       - mssql_data:/var/opt/mssql
+      - ./data/init.sql:/docker-entrypoint-init.d
 
   backend:
     build: ./backend
     container_name: backend
     environment:
-      SPRING_DATASOURCE_URL: jdbc:sqlserver://db:1433;databaseName=MedicalDB
+      SPRING_DATASOURCE_URL: jdbc:sqlserver://db:1433;databaseName=MedicalDB;encrypt=false
       SPRING_DATASOURCE_USERNAME: sa
       SPRING_DATASOURCE_PASSWORD: YourStrong!Passw0rd
     ports:
@@ -64,5 +65,4 @@ networks:
 
 volumes:
   mssql_data:
-  grafana_data: 
-  
+  grafana_data:
