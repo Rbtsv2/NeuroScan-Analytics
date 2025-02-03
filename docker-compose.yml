@@ -24,7 +24,9 @@ services:
       wait
       "
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: backend
     environment:
       SPRING_DATASOURCE_URL: jdbc:sqlserver://db:1433;databaseName=MedicalDB;encrypt=false
@@ -33,14 +35,17 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./backend/src:/app/src
+      - ./backend/src:/app/src # Comptable linux
+      - ${PWD}/backend/src:/app/src # Comptable windows
     depends_on:
       - db
     networks:
       - medical_network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "4200:80"
@@ -50,10 +55,10 @@ services:
       - API_URL=http://backend:8080/api
     volumes:
       - ./frontend:/app
+      - ${PWD}/frontend:/app  # Windows
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
       - medical_network
-
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
