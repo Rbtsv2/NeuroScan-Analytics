@@ -51,7 +51,7 @@ cd NeuroScan-Analytics
 2. Configurez la base de données dans `src/main/resources/application.properties` :
 
 ```properties
-spring.datasource.url=jdbc:sqlserver://db:1433;databaseName=neuroscan
+spring.datasource.url=jdbc:sqlserver://db:1433;databaseName=Sleep
 spring.datasource.username=sa
 spring.datasource.password=VotreMotDePasse
 ```
@@ -72,7 +72,7 @@ L'application sera accessible à l'adresse : `http://localhost:8080`
 
 ## 🗃️ Importation des Données Kaggle
 
-1. Téléchargez le dataset depuis Kaggle (ex : Alzheimer’s Dataset).
+1. Téléchargez le dataset depuis Kaggle (ex : Sleep Health and Lifestyle Dataset's Dataset).
 2. Placez le fichier CSV dans le dossier `data/`.
 3. Exécutez le service d'importation via l'API :
 
@@ -86,6 +86,20 @@ POST /api/data/import
 - Graphiques radar pour la comparaison des symptômes
 - Histogrammes des troubles du sommeil
 - Timelines des évolutions de maladies neurodégénératives
+
+## 🌐 Accès aux Services
+
+- **Application API (Spring Boot) :**
+  - Local : [http://localhost:8080](http://localhost:8080)
+  - Réseau : [http://192.168.1.42:8080](http://192.168.1.42:8080)
+
+- **Base de Données (SQL Server) :**
+  - Local : `localhost:1433`
+  - Réseau : `192.168.1.42:1433`
+
+- **Grafana (si configuré) :**
+  - Local : [http://localhost:3000](http://localhost:3000)
+  - Réseau : [http://192.168.1.42:3000](http://192.168.1.42:3000)
 
 ## 🐳 Configuration Docker
 

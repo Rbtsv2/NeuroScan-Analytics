@@ -1,0 +1,16 @@
+<div>
+  <h1>Health Data</h1>
+  <div style="display: block; width: 80%; margin: auto;">
+    <canvas baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="barChartType">
+    </canvas>
+  </div>
+  <h2>Détails (JSON)</h2>
+  <ul>
+    <li *ngFor="let item of healthData">
+      {{ item | json }}
+    </li>
+  </ul>
+</div>
