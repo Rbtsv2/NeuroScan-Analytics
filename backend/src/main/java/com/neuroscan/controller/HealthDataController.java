@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*") // Autorise toutes les origines
 @RestController
 @RequestMapping("/api/health")
 public class HealthDataController {
