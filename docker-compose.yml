@@ -30,11 +30,12 @@ services:
     container_name: backend
     environment:
       SPRING_DATASOURCE_URL: jdbc:sqlserver://db:1433;databaseName=MedicalDB;encrypt=false
-      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_USERNAME: SA
       SPRING_DATASOURCE_PASSWORD: YourStrong!Passw0rd
     ports:
       - "8080:8080"
     volumes:
+      - ./data:/app/data
       - ./backend/src:/app/src # Comptable linux
       - ${PWD}/backend/src:/app/src # Comptable windows
     depends_on:
